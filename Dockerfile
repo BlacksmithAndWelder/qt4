@@ -15,13 +15,14 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update 
 
 # Install NODEJS
-RUN yes | apt-get install curl &&
+RUN yes | apt-get install curl
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash
 RUN apt-get update 
 RUN apt-get install -y nodejs
 
 # Install PHP
-RUN apt-get update && apt-get install -y software-properties-common
+RUN apt-get update 
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php
 RUN yes | apt-get install -y wget curl php8.1-xdebug php8.1-cli php8.1-curl php8.1-gd php8.1-mbstring php8.1-mcrypt php8.1-pgsql php8.1-redis php8.1-xdebug php8.1-xml php8.1-zip libapache2-mod-php8.1 php-pear apache2 libapache2-mod-php8.1 zlib1g-dev libzip-dev unzip zip && \
     apt-get clean
