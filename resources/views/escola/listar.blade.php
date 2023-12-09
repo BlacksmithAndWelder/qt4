@@ -1,4 +1,4 @@
-@extends('layout.main') 
+@extends('layout.main')
 
 @section('title', 'Escola')
     
@@ -19,8 +19,8 @@
     
     <div class="card">
         <div class="card-body">
-
-            <table id="table" class="table" width="100%">
+            <table id="escolaTable" class="table">
+                <caption>List of Escolas</caption>
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -31,22 +31,20 @@
                 <tbody>
                     @foreach ($ListaEscola as $Escola)
                         <tr>
-                            <td scope="row">{{ $Escola->id }}</td>
-                            <td>{{$Escola->nome}}</td>
+                            <td>{{ $Escola->id }}</td>
+                            <td>{{ $Escola->nome }}</td>
                             <td>
                                 <div class="row justify-content-center">
-                                    
                                     @include('componentes.acao-tabela', ['id' => $Escola->id])
-                                    
-                                </div>                                
+                                </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-        
         </div>
     </div>
+
 @include('componentes.modal')
 
 @endsection

@@ -13,14 +13,14 @@ class SuporteTarefaController extends Controller
     
 
     public function listar(){
-        $ListaSuporteTarefa = SuporteTarefa::with('usuario','status')->get();
-        return view('suporte-tarefa.listar', compact('ListaSuporteTarefa'));
+        $listaSuporteTarefa = SuporteTarefa::with('usuario','status')->get();
+        return view('suporte-tarefa.listar', compact('listaSuporteTarefa'));
     }
-    public function criar(){ 
-        $SuporteTarefa = new SuporteTarefa();
-        $ListaUsuarios = Usuario::get();
-        $ListaSuporteTarefaStatus = SuporteTarefaStatus::get();
-        return view('suporte-tarefa.criar',compact('SuporteTarefa', 'ListaSuporteTarefaStatus', 'ListaUsuarios'));
+    public function criar(){
+        $suporteTarefa = new SuporteTarefa();
+        $listaUsuarios = Usuario::get();
+        $listaSuporteTarefaStatus = SuporteTarefaStatus::get();
+        return view('suporte-tarefa.criar',compact('suporteTarefa', 'listaSuporteTarefaStatus', 'listaUsuarios'));
     }
     public function salvar(SuporteTarefaRequest $request){
         try{
@@ -28,7 +28,7 @@ class SuporteTarefaController extends Controller
             $dados          = $request->validated();
             $usuario        = Usuario::find($dados['user_id']);
             $status         = SuporteTarefaStatus::find($dados['status_id']);
-            $SuporteTarefa  = array(
+            $suporteTarefa  = array(
                 'user_id'       => $usuario->id,
                 'status_id'     => $status->id,
                 'urgente'       => $dados['urgente'],
@@ -37,7 +37,7 @@ class SuporteTarefaController extends Controller
                 'created_at'    => now(),
                 'updated_at'    => now()
             );
-            $SuporteTarefa = SuporteTarefa::create($SuporteTarefa);
+            $suporteTarefa = SuporteTarefa::create($suporteTarefa);
 
             return redirect()
                     ->route('suporte-tarefa.listar')
@@ -52,11 +52,11 @@ class SuporteTarefaController extends Controller
     }
     public function editar($id){
         try {
-            $SuporteTarefa              = SuporteTarefa::find($id);
-            $ListaUsuarios              = Usuario::get();
-            $ListaSuporteTarefaStatus   = SuporteTarefaStatus::get();
+            $suporteTarefa              = SuporteTarefa::find($id);
+            $listaUsuarios              = Usuario::get();
+            $listaSuporteTarefaStatus   = SuporteTarefaStatus::get();
             
-            return view('suporte-tarefa.editar', compact('SuporteTarefa', 'ListaSuporteTarefaStatus', 'ListaUsuarios'));
+            return view('suporte-tarefa.editar', compact('suporteTarefa', 'listaSuporteTarefaStatus', 'listaUsuarios'));
         } catch (\Throwable $th) {
             report($th);
             return redirect()
@@ -70,14 +70,14 @@ class SuporteTarefaController extends Controller
             $dados                      = $request->validated();
             $usuario                    = Usuario::find($dados['user_id']);
             $status                     = SuporteTarefaStatus::find($dados['status_id']);
-            $SuporteTarefa              = SuporteTarefa::find($id);
-            $SuporteTarefa->user_id     = $usuario->id;
-            $SuporteTarefa->status_id   = $status->id;
-            $SuporteTarefa->urgente     = $dados['urgente'];
-            $SuporteTarefa->assunto     = $dados['assunto'];
-            $SuporteTarefa->descricao   = $dados['descricao'];
-            $SuporteTarefa->updated_at  = now();
-            $SuporteTarefa->save();
+            $suporteTarefa              = SuporteTarefa::find($id);
+            $suporteTarefa->user_id     = $usuario->id;
+            $suporteTarefa->status_id   = $status->id;
+            $suporteTarefa->urgente     = $dados['urgente'];
+            $suporteTarefa->assunto     = $dados['assunto'];
+            $suporteTarefa->descricao   = $dados['descricao'];
+            $suporteTarefa->updated_at  = now();
+            $suporteTarefa->save();
 
             return redirect()
                 ->route('suporte-tarefa.listar')
@@ -96,8 +96,8 @@ class SuporteTarefaController extends Controller
             /**
              * Verificar se possui tarefa antes de excluir
              */
-            $SuporteTarefa = SuporteTarefa::find($id);
-            $SuporteTarefa->delete();
+            $suporteTarefa = SuporteTarefa::find($id);
+            $suporteTarefa->delete();
 
             return back()
                 ->with('classe', 'success')

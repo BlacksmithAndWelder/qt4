@@ -1,4 +1,4 @@
-@extends('layout.main') 
+@extends('layout.main')
 
 @section('title', 'Home')
     
@@ -9,7 +9,7 @@
 @isset($NasaDetalhe)
     <div id="" class="text-center pb-5 img-nasa">
         <div id="" class="">
-            <img src="{{$NasaDetalhe->hdurl}}" class="rounded w-25" >
+            <img src="{{ $NasaDetalhe->hdurl }}" alt="Image Description" class="rounded w-25">
         </div>
         <div id="" class="rounded img-titulo">
             <h4>{{$NasaDetalhe->title}}</h2>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div id="div-explanation" class="d-flex mt-3 mb-3 justify-content-center">
-        <img src="{{ asset("/images/nasa-logo.svg") }}">
+        <img src="{{ asset("/images/nasa-logo.svg") }}" alt="NASA Logo">
     </div>
 @endisset
 @include('componentes.modal')

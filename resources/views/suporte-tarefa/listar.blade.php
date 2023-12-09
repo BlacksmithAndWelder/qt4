@@ -1,4 +1,4 @@
-@extends('layout.main') 
+@extends('layout.main')
 
 @section('title', 'Home')
     
@@ -19,8 +19,8 @@
     
     <div class="card">
         <div class="card-body">
-
-            <table id="table" class="table datatable" width="100%">
+            <table id="suporteTarefaTable" class="table datatable">
+                <caption>List of Suporte Tarefas</caption>
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -35,16 +35,16 @@
                 <tbody>
                     @foreach ($ListaSuporteTarefa as $SuporteTarefa)
                         <tr>
-                            <td scope="row">{{ $SuporteTarefa->id }}</td>
-                            <td>{{$SuporteTarefa->usuario->name}}</td>
-                            <td>{{$SuporteTarefa->assunto}}</td>
-                            <td>{{$SuporteTarefa->status->nome}}</td>
-                            <td>{{$SuporteTarefa->urgente ? 'Sim' : 'Não'}}</td>
-                            <td>{{$SuporteTarefa->updated_at}}</td>
+                            <td>{{ $SuporteTarefa->id }}</td>
+                            <td>{{ $SuporteTarefa->usuario->name }}</td>
+                            <td>{{ $SuporteTarefa->assunto }}</td>
+                            <td>{{ $SuporteTarefa->status->nome }}</td>
+                            <td>{{ $SuporteTarefa->urgente ? 'Sim' : 'Não' }}</td>
+                            <td>{{ $SuporteTarefa->updated_at }}</td>
                             <td>
                                 <div class="row justify-content-center">
                                     @include('componentes.acao-tabela', ['id' => $SuporteTarefa->id])
-                                </div>                                
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -52,6 +52,7 @@
             </table>
         </div>
     </div>
+
 
 @include('componentes.modal')
 

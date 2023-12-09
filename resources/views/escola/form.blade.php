@@ -36,17 +36,29 @@
                 Segmento *
             </label>
             <div class="form-check form-check">
-                <input class="form-check-input" type="radio" name="segmento" id="inlineRadio1" {{$Escola->segmento == 'Ensino Primário' ? 'checked' : ''}} required value="Ensino Primário"/>
+                <input class="form-check-input"
+                    type="radio"
+                    name="segmento"
+                    id="inlineRadio1"
+                    {{$Escola->segmento == 'Ensino Primário' ? 'checked' : ''}} required value="Ensino Primário"/>
                 <label class="form-check-label" for="inlineRadio1">Ensino Primário</label>
             </div>
 
             <div class="form-check form-check">
-                <input class="form-check-input" type="radio" name="segmento" id="inlineRadio2" {{$Escola->segmento == 'Ensino Fundamental' ? 'checked' : ''}} required value="Ensino Fundamental"/>
+                <input class="form-check-input"
+                    type="radio"
+                    name="segmento"
+                    id="inlineRadio2"
+                    {{$Escola->segmento == 'Ensino Fundamental' ? 'checked' : ''}} required value="Ensino Fundamental"/>
                 <label class="form-check-label" for="inlineRadio2">Ensino Fundamental</label>
             </div>
 
             <div class="form-check form-check">
-                <input class="form-check-input" type="radio" name="segmento" id="inlineRadio3" {{$Escola->segmento == 'Ensino Médio' ? 'checked' : ''}} required value="Ensino Médio" />
+                <input class="form-check-input"
+                    type="radio"
+                    name="segmento"
+                    id="inlineRadio3"
+                    {{$Escola->segmento == 'Ensino Médio' ? 'checked' : ''}} required value="Ensino Médio" />
                 <label class="form-check-label" for="inlineRadio3">Ensino Médio</label>
             </div>
             @error('segmento')
@@ -57,12 +69,12 @@
         </div>
         <div class="form-group col-md-12">
             <label class="mt-3">
-                Endereço 
+                Endereço
             </label>
             <textarea id="endereco"
-                name="endereco" 
-                class="form-control @error('endereco') is-invalid @enderror" 
-                cols="20" 
+                name="endereco"
+                class="form-control @error('endereco') is-invalid @enderror"
+                cols="20"
                 rows="2">{{old('endereco') ?? $Escola->endereco}}</textarea>
             @error('endereco')
                 <span class="invalid-feedback" role="alert">

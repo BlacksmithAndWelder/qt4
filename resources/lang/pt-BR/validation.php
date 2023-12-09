@@ -1,5 +1,5 @@
 <?php
-
+const INVALID_SELECTION_ERROR = 'O campo :attribute selecionado é inválido.';
 return [
 
     /*
@@ -46,9 +46,9 @@ return [
     'doesnt_start_with'    => 'O :attribute não pode começar com um dos seguintes: :values.',
     'email'                => 'O campo :attribute deve ser um endereço de e-mail válido.',
     'ends_with'            => 'O campo :attribute deve terminar com um dos seguintes: :values',
-    'enum'                 => 'O :attribute selecionado é inválido.',
-    'exists'               => 'O campo :attribute selecionado é inválido.',
-    'file'                 => 'O campo :attribute deve ser um arquivo.',
+    'enum'                 => self::INVALID_SELECTION_ERROR,
+    'exists'               => self::INVALID_SELECTION_ERROR,
+    'file'                 => self::INVALID_SELECTION_ERROR,
     'filled'               => 'O campo :attribute deve ter um valor.',
     'gt' => [
         'numeric' => 'O campo :attribute deve ser maior que :value.',
@@ -63,7 +63,7 @@ return [
         'array'   => 'O campo :attribute deve conter :value itens ou mais.',
     ],
     'image'                => 'O campo :attribute deve ser uma imagem.',
-    'in'                   => 'O campo :attribute selecionado é inválido.',
+    'in'                   => self::INVALID_SELECTION_ERROR,
     'in_array'             => 'O campo :attribute não existe em :other.',
     'integer'              => 'O campo :attribute deve ser um número inteiro.',
     'ip'                   => 'O campo :attribute deve ser um endereço de IP válido.',

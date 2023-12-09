@@ -2,4 +2,4 @@
     <div id="message" class="alert alert-{{Session::get('classe')}}">
         {{ Session::get('mensagem') }}
     </div>
-@endif 
+@endif

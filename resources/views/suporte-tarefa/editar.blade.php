@@ -1,4 +1,4 @@
-@extends('layout.main') 
+@extends('layout.main')
 
 @section('title', 'Home')
     
@@ -7,7 +7,9 @@
     @include('componentes.titulo', ['titulo' => 'Atualização de Suporte Tarefa'])
     @include('componentes.mensagem')
     
-    <form action="{{ route('suporte-tarefa.atualizar', $SuporteTarefa->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('suporte-tarefa.atualizar', $SuporteTarefa->id) }}"
+            method="POST"
+            enctype="multipart/form-data">
         
         @include('suporte-tarefa.form')
         

@@ -8,26 +8,24 @@ use App\Http\Requests\Usuario\Request as UsuarioRequest;
 
 class UsuarioController extends Controller
 {
-    
-
     public function listar(){
-        $ListaUsuarios = Usuario::get();
-        return view('usuario.listar', compact('ListaUsuarios'));
+        $listaUsuarios = Usuario::get();
+        return view('usuario.listar', compact('listaUsuarios'));
     }
-    public function criar(){ 
-        $Usuario = new Usuario();
-        return view('usuario.criar',compact('Usuario'));
+    public function criar(){
+        $usuario = new Usuario();
+        return view('usuario.criar',compact('usuario'));
     }
     public function salvar(UsuarioRequest $request){
         try{
             
             $dados = $request->validated();
-            $Usuario = array(
+            $usuario = array(
                 'name'      => $dados['nome'],
                 'password'  => $dados['senha'],
                 'email'     => $dados['email']
             );
-            $Usuario = Usuario::create($Usuario);
+            $usuario = Usuario::create($usuario);
 
             return redirect()
                     ->route('usuario.listar')
@@ -43,9 +41,9 @@ class UsuarioController extends Controller
     }
     public function editar($id){
         try {
-            $Usuario = Usuario::find($id);
+            $usuario = Usuario::find($id);
             
-            return view('usuario.editar', compact('Usuario'));
+            return view('usuario.editar', compact('usuario'));
         } catch (\Throwable $th) {
             report($th);
             return redirect()
@@ -57,11 +55,11 @@ class UsuarioController extends Controller
     public function atualizar(UsuarioRequest $request, $id){
         try {
             $dados = $request->validated();
-            $Usuario = Usuario::find($id);
-            $Usuario->name = $dados['nome'];
-            $Usuario->password = $dados['senha'];
-            $Usuario->email = $dados['email'];
-            $Usuario->save();
+            $usuario = Usuario::find($id);
+            $usuario->name = $dados['nome'];
+            $usuario->password = $dados['senha'];
+            $usuario->email = $dados['email'];
+            $usuario->save();
 
             return redirect()
                 ->route('usuario.listar')
@@ -80,8 +78,8 @@ class UsuarioController extends Controller
             /**
              * Verificar se possui matrícula antes de excluir
              */
-            $Usuario = Usuario::find($id);
-            $Usuario->delete();
+            $usuario = Usuario::find($id);
+            $usuario->delete();
 
             return back()
                 ->with('classe', 'success')

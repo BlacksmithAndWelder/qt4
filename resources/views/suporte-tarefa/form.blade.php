@@ -17,10 +17,17 @@
             <label class="mt-3">
                 Usuario *
             </label>
-            <select id="user_id" class="form-control custom-select @error('user_id') is-invalid @enderror" name="user_id" required>
+            <select id="user_id"
+                    class="form-control custom-select @error('user_id') is-invalid @enderror"
+                    name="user_id"
+                    required>
                 <option value=""></option>
                 @foreach ($ListaUsuarios as $value)
-                    <option value="{{$value->id}}" {{ $value->id == (old('user_id') ?? $SuporteTarefa->user_id) ? 'selected' : '' }}>{{$value->name}}</option>
+                <option value="{{ $value->id }}"
+                        {{ $value->id == (old('user_id') ?? $SuporteTarefa->user_id) ? 'selected' : '' }}>
+                    {{ $value->name }}
+                </option>
+
                 @endforeach
             </select>
             @error('status_id')
@@ -35,10 +42,16 @@
                 <label class="mt-3">
                     Status *
                 </label>
-                <select id="status_id" class="form-control custom-select @error('status_id') is-invalid @enderror" name="status_id" required>
+                <select id="status_id"
+                        class="form-control custom-select @error('status_id') is-invalid @enderror"
+                        name="status_id"
+                        required>
                     <option value=""></option>
                     @foreach ($ListaSuporteTarefaStatus as $value)
-                        <option value="{{$value->id}}" {{ $value->id == (old('status_id') ?? $SuporteTarefa->status_id) ? 'selected' : '' }}>{{$value->nome}}</option>
+                        <option value="{{$value->id}}"
+                                {{ $value->id == (old('status_id') ?? $SuporteTarefa->status_id) ? 'selected' : '' }}>
+                                {{$value->nome}}
+                            </option>
                     @endforeach
                 </select>
                 @error('status_id')
@@ -52,11 +65,18 @@
                     Urgente *
                 </label>
                 <div class="form-check form-check   ">
-                    <input class="form-check-input" type="radio" name="urgente" id="urgenteSim" {{$SuporteTarefa->urgente ? 'checked' : ''}} required value="1"/>
+                    <input class="form-check-input"
+                            type="radio"
+                            name="urgente"
+                            id="urgenteSim"
+                            {{$SuporteTarefa->urgente ? 'checked' : ''}} required value="1"/>
                     <label class="form-check-label" for="urgenteSim">Sim</label>
                 </div>
                 <div class="form-check form-check">
-                    <input class="form-check-input" type="radio" name="urgente" id="urgenteNao" {{!$SuporteTarefa->urgente ? 'checked' : ''}} required value="0"/>
+                    <input class="form-check-input"
+                            type="radio"
+                            name="urgente"
+                            id="urgenteNao" {{!$SuporteTarefa->urgente ? 'checked' : ''}} required value="0"/>
                     <label class="form-check-label" for="urgenteNao">Não</label>
                 </div>
                 @error('urgente')
@@ -117,12 +137,12 @@
         </div>
         <div class="form-group col-md-12">
             <label class="mt-3">
-                Descrição * 
+                Descrição *
             </label>
             <textarea id="descricao"
-                name="descricao" 
-                class="form-control @error('descricao') is-invalid @enderror" 
-                cols="20" 
+                name="descricao"
+                class="form-control @error('descricao') is-invalid @enderror"
+                cols="20"
                 rows="2"
                 required>{{old('descricao') ?? $SuporteTarefa->descricao}}</textarea>
             @error('descricao')

@@ -35,7 +35,7 @@
         <div id="content">
             <div id="content-header">
                 <span style="font-size:30px;cursor:pointer" id="menu-btn">
-                    <i class="fa-solid fa-bars"></i> 
+                    <i class="fa-solid fa-bars"></i>
                     Menu
                 </span>
             </div>

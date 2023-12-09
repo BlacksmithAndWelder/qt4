@@ -10,13 +10,13 @@ use App\Models\Turma;
 class TurmaController extends Controller{
       
     public function listar(){
-        $ListaTurma = Turma::with('escola')->get();
-        return view('turma.listar', compact('ListaTurma'));
+        $listaTurma = Turma::with('escola')->get();
+        return view('turma.listar', compact('listaTurma'));
     }
     public function criar(){
-        $Turma          = new Turma();
-        $ListaEscolas   = Escola::get();
-        return view('turma.criar',compact('Turma', 'ListaEscolas'));
+        $turma          = new Turma();
+        $listaEscolas   = Escola::get();
+        return view('turma.criar',compact('turma', 'listaEscolas'));
     }
     public function salvar(TurmaRequest $request){
         try{
@@ -46,10 +46,10 @@ class TurmaController extends Controller{
     }
     public function editar($id){
         try {
-            $Turma          = Turma::with('escola')->find($id);
-            $ListaEscolas   = Escola::get();
+            $turma          = Turma::with('escola')->find($id);
+            $listaEscolas   = Escola::get();
             
-            return view('turma.editar', compact('Turma', 'ListaEscolas'));
+            return view('turma.editar', compact('turma', 'listaEscolas'));
         } catch (\Throwable $th) {
             report($th);
             return redirect()

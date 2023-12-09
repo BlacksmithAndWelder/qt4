@@ -1,5 +1,10 @@
 <!-- Modal -->
-<div class="modal fade" id="modalEnable" tabindex="-1" role="dialog" aria-labelledby="modalEnableLabel" aria-hidden="true">
+<div class="modal fade"
+        id="modalEnable"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="modalEnableLabel"
+        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

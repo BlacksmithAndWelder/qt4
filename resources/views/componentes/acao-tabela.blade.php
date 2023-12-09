@@ -1,10 +1,10 @@
 @if (isset($editar) && $editar)
-    <a 
-        href="{{ route($editar, ['id' => $id ]) }}" 
+    <a
+        href="{{ route($editar, ['id' => $id ]) }}"
         style="width: auto; !important"
-        class="btn btn-sm mr-1 btn-outline-primary" 
+        class="btn btn-sm mr-1 btn-outline-primary"
         data-placement="top"
-        data-toggle="tooltip" 
+        data-toggle="tooltip"
         title="Editar">
         <i class="fa-solid fa-pen-to-square"></i>
     </a>

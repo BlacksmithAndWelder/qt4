@@ -17,7 +17,9 @@
                 <label class="mt-3">
                     Nome *
                 </label>
-                <i class="fa-regular fa-circle-info" title="Nomes disponíveis: 'Aberto', 'Inconsistente', 'Solucionado', 'Recusado'"></i>
+                <i class="fa-regular fa-circle-info"
+                    title="Nomes disponíveis: 'Aberto', 'Inconsistente', 'Solucionado', 'Recusado'">
+                </i>
                 <input id="nome"
                     type="text"
                     class="form-control @error('nome') is-invalid @enderror"

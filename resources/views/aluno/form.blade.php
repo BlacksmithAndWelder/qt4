@@ -71,12 +71,20 @@
                 Bolsa de estudos *
             </label>
             <div class="form-check form-check">
-                <input class="form-check-input" type="radio" name="bolsa_estudos" {{$Aluno->bolsa_estudos ? 'checked' : ''}} required id="bolsa_estudos_sim" value="1"/>
+                <input class="form-check-input"
+                        type="radio"
+                        name="bolsa_estudos"
+                        {{$Aluno->bolsa_estudos ? 'checked' : ''}}
+                        required id="bolsa_estudos_sim" value="1"/>
                 <label class="form-check-label" for="bolsa_estudos_sim">Sim</label>
             </div>
 
             <div class="form-check form-check">
-                <input class="form-check-input" type="radio" name="bolsa_estudos" {{!$Aluno->bolsa_estudos ? 'checked' : ''}} required id="bolsa_estudos_nao" value="0"/>
+                <input class="form-check-input"
+                        type="radio"
+                        name="bolsa_estudos"
+                        {{!$Aluno->bolsa_estudos ? 'checked' : ''}}
+                        required id="bolsa_estudos_nao" value="0"/>
                 <label class="form-check-label" for="bolsa_estudos_nao">Não</label>
             </div>
             @error('bolsa_estudos')
@@ -87,12 +95,16 @@
         </div>
         <div class="form-group col-md-4">
             <label class="mt-3">
-                Turma * 
+                Turma *
             </label>
-            <select id="turma_id" class="form-control custom-select @error('turma_id') is-invalid @enderror" name="turma_id" required>
+            <select id="turma_id"
+                    class="form-control custom-select @error('turma_id') is-invalid @enderror"
+                    name="turma_id" required>
                 <option value=""></option>
                 @foreach ($ListaTurma as $value)
-                    <option value="{{$value->id}}" {{ $value->id == (old('turma_id') ?? $Aluno->turma_id) ? 'selected' : '' }}>
+                    <option value="{{$value->id}}"
+                    {{ $value->id == (old('turma_id') ??
+                        $Aluno->turma_id) ? 'selected' : '' }}>
                         {{$value->escola->nome . ' - Equipe: ' . $value->equipe . ', Sala: ' . $value->sala}}
                     </option>
                 @endforeach

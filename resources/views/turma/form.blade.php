@@ -16,11 +16,11 @@
             <label class="mt-3">
                 Escola *
             </label>
-            <select id="escola_id" class="form-control custom-select 
+            <select id="escola_id" class="form-control custom-select
                 @error('escola_id') is-invalid @enderror" name="escola_id" required>
                 <option value=""></option>
                 @foreach ($ListaEscolas as $value)
-                    <option value="{{ $value->id }}" 
+                    <option value="{{ $value->id }}"
                         {{ $value->id == (old('escola_id') ?? $Turma->escola_id) ? 'selected' : '' }}>
                         {{ $value->nome }}
                     </option>
@@ -37,7 +37,7 @@
             <label class="mt-3">
                 Ativo
             </label>
-            <select id="ativo" class="form-control custom-select 
+            <select id="ativo" class="form-control custom-select
                 @error('ativo') is-invalid @enderror" name="ativo" required>
                 <option value="1" {{ $Turma->ativo ? 'selected' : '' }}>Sim</option>
                 <option value="0" {{ !$Turma->ativo ? 'selected' : '' }}>Não</option>

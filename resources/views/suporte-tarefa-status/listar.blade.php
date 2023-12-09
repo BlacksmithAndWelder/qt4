@@ -1,4 +1,4 @@
-@extends('layout.main') 
+@extends('layout.main')
 
 @section('title', 'Home')
     
@@ -19,31 +19,32 @@
     
     <div class="card">
         <div class="card-body">
-
-            <table id="table" class="table datatable" width="100%">
+            <table id="table" class="table datatable">
+                <caption>List of Suporte Tarefa Status</caption>
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th>Nome</th>
-                        <th class="text-center" scope="col">Ação</th>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th class="text-center">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($ListaSuporteTarefaStatus as $SuporteTarefaStatus)
-                        <tr>
-                            <td scope="row">{{ $SuporteTarefaStatus->id }}</td>
-                            <td>{{$SuporteTarefaStatus->nome}}</td>
-                            <td>
-                                <div class="row justify-content-center">
-                                    @include('componentes.acao-tabela', ['id' => $SuporteTarefaStatus->id])
-                                </div>                                
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>{{ $SuporteTarefaStatus->id }}</td>
+                        <td>{{ $SuporteTarefaStatus->nome }}</td>
+                        <td>
+                        <div class="row justify-content-center">
+                            @include('componentes.acao-tabela', ['id' => $SuporteTarefaStatus->id])
+                        </div>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+
 
 @include('componentes.modal')
 
