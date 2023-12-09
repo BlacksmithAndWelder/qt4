@@ -80,9 +80,9 @@ jobs:
           run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
           
-       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
+        - name: SonarCloud Scan
+          uses: SonarSource/sonarcloud-github-action@master
+          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     # - name: Run test suite
