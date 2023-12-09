@@ -21,6 +21,7 @@
         </exclude>
     </coverage>
     
+    
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
