@@ -57,6 +57,7 @@ App\Http\Requests\SuporteTarefa\Request
 App\Http\Requests\Turma\Request
   Methods:  66.67% ( 2/ 3)   Lines:  92.31% ( 12/ 13)
 App\Http\Requests\Usuario\Request
+
   Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 11/ 11)
 App\Http\Traits\AlunoTrait
   Methods:  ( 0/ 0)   Lines:  (  0/  0)
