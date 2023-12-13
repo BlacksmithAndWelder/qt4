@@ -5,7 +5,7 @@ use App\Models\Aluno;
  * @codeCoverageIgnore
  */
 class AlunoTest extends TestCase
-{
+{   
     /**
  * @codeCoverageIgnore
  */

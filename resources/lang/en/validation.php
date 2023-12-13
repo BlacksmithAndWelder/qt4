@@ -1,5 +1,5 @@
 <?php
-const INVALID_SELECTION_ERROR = 'O campo :attribute selecionado é inválido.';
+const INVALID_SELECTION_ERROR_EN = 'O campo :attribute selecionado é inválido.';
 return [
 
     /*
@@ -45,8 +45,8 @@ return [
     'distinct' => 'The :attribute field has a duplicate value.',
     'email' => 'The :attribute must be a valid email address.',
     'ends_with' => 'The :attribute must end with one of the following: :values.',
-    'enum' => self::INVALID_SELECTION_ERROR,
-    'exists' => self::INVALID_SELECTION_ERROR,
+    'enum' => self::INVALID_SELECTION_ERRORen,
+    'exists' => self::INVALID_SELECTION_ERRORen,
     'file' => 'The :attribute must be a file.',
     'filled' => 'The :attribute field must have a value.',
     'gt' => [
